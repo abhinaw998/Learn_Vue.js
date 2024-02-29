@@ -18,16 +18,24 @@
     </header>
     <section id="events">
       <h2>Events in Action</h2>
-      <button v-on:click="add(5)">Add</button>
-      <button v-on:click="reduce(5)" >Reduce</button>
-      <p>Result: {{ counter }}</p>
       <input type="'text" v-on:input="onNameChange($event, 'Kumar')"/>
-      <p>Your Name: {{ name }}</p>
-
+      <p>Your Name: {{ name }}</p>  
       <form v-on:submit.prevent="onSave">
-       <lable> <input type="'text" v-on:input="onFormNameChange($event, 'Kumar')" v-on:keyup.enter/></lable>
+       <lable> <input type="'text" v-on:input="onFormNameChange($event, 'Kumar')" v-on:keyup.enter="onConfirmName"/></lable>
         <button v-on:click="onSave">Save</button>
-        <p>Your Name: {{ confirmName }}</p>
+        <p>Your Confirm Name: {{ confirmName }}</p>
+
+        <lable>===============v:bind:value and v-on:input =================</lable>
+          <input type="'text"  v-bind:value="changeName" v-on:input="onChangeNameX" />
+        <button v-on:click="onResetName">Reset Change Name</button>
+        <p>Your Confirm Name: {{ changeName }}</p>
+
+        <lable>==========ABOVE ALTERNATIVE->   v-model directive=========</lable>
+          <input type="'text" v-model="changeName" />
+        <button v-on:click="onResetName">Reset Change Name</button>
+        <p>Your Confirm Name: {{ changeName }}</p>
+        <lable>===============v-html directive==============</lable>
+        <p v-html="htmlVlaue"/>
       </form>
       
     </section>

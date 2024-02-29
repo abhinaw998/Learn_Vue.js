@@ -4,6 +4,8 @@ const app = Vue.createApp({
       counter: 0,
       confirmName:"",
       name:"",
+      changeName:"",
+      htmlVlaue:"<h1>Abhinaw Kumar html</h1>"
     };
   },
   methods: {
@@ -24,8 +26,20 @@ this.confirmName=this.name
     },
     onFormNameChange(event){
       this.name=event.target.value
+    },
+    onChangeName(event){
+      
+      this.changeName=event.target.value;
+    },
+    onChangeNameX(event){
+      console.log('calll')
+      this.changeName=event.target.value+"X";
+    },
+    onResetName(){
+      this.changeName="";
     }
   },
 });
+
 
 app.mount("#events");
